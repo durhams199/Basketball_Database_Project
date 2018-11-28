@@ -1,1 +1,1 @@
-create 
+create table players
