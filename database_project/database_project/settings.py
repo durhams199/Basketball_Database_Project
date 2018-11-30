@@ -11,9 +11,24 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from django.core.exceptions import ImproperlyConfigured
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Handling Key Import Errors
+def get_env_variable(var_name):
+    """ Get the enviroment variable or return exception"""
+    """print(var_name)
+    Check = os.environ.get[var_name]
+    print(Check)"""
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        error_msg = "Set the %s enviroment variable" % var_name
+        raise ImproperlyConfigured(error_msg)
+
+# Get ENV VARIABLES key
+ENV_ROLE = get_env_variable('ENV_ROLE')
 
 
 # Quick-start development settings - unsuitable for production
@@ -23,8 +38,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '9z#2(*5h2%xp91j@(*%oth8wpp-!zw81y#gjc44qt-uuq-_f_z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = False
+TEMPLATE_DEBUG = DEBUG
+CRMEASY_DB_PASS = False
+if ENV_ROLE == 'development':
+    DEBUG = True
+    TEMPLATE_DEBUG = DEBUG
+    CRMEASY_DB_PASS = get_env_variable('CRMEASY_DB_PASS')
 ALLOWED_HOSTS = []
 
 
@@ -76,7 +96,9 @@ WSGI_APPLICATION = 'database_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'Basketball_DB',
+        'USER': 'root',
+        'PASSWORD': CRMEASY_DB_PASS,
     }
 }
 
