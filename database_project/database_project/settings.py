@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 #    'django.contrib.sites',
-    'myapp.apps.MyappConfig',
+    'myapp',
 ]
 
 MIDDLEWARE = [
@@ -97,8 +97,15 @@ WSGI_APPLICATION = 'database_project.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'basketball_db',
+        'USER': 'root',
+        'PASSWORD': CRMEASY_DB_PASS,
+    },
+
+    'basketball_DB': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'Basketball_DB',
+        'NAME': 'basketball_db',
         'USER': 'root',
         'PASSWORD': CRMEASY_DB_PASS,
     }
