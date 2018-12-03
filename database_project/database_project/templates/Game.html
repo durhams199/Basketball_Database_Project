@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Team </p></section>
+<div class="container">
+ <table class="table" style="background-color:white;">
+  <thead>
+    <tr>
+     <th></th>
+     <th>GameID</th>
+     <th>TeamID1</th>
+     <th>TeamID2</th>
+     <th>Team 1 Points</th>
+     <th>Team 2 Points</th>
+     <th> Date </th>
+    </tr>
+   </thead>
+   <tbody>
+    {% for game in games %}
+    <tr>
+    <th scope="row"></th>
+     <td>{{game.gameid}}
+     <td>{{game.team1id.teamid}}</td>
+     <td>{{game.team2id}}</td>
+     <td>{{game.team1points}}</td>
+     <td>{{game.team2points}}</td>
+     <td> None </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+ </table>
+</div>
+{% endblock %}	
+
