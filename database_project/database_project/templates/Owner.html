@@ -1,0 +1,30 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<p>Owner</p></section>
+<div class="container">
+ <table class="table" style="background-color:white;">
+  <thead>
+    <tr>
+     <th></th>
+     <th>OwnerID</th>
+     <th>First Name</th>
+     <th>Last Name</th>
+     <th>Team Name</th>
+    </tr>
+   </thead>
+   <tbody>
+    {% for owner in owners %}
+    <tr>
+    <th scope="row"></th>
+     <td>{{owner.ownerid}}</td>
+     <td>{{owner.first_name}}</td>
+     <td>{{owner.last_name}}</td>
+     <td>{{owner.teamid.teamname}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+ </table>
+</div>
+{% endblock %}	
