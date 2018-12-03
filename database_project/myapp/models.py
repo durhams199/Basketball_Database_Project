@@ -30,7 +30,7 @@ class Conferencerecord(models.Model):
 class Game(models.Model):
     gameid = models.IntegerField(db_column='gameID', primary_key=True)  # Field name made lowercase.
     team1id = models.ForeignKey('Team', models.DO_NOTHING, db_column='team1ID', blank=True, null=True)  # Field name made lowercase.
-    team2id = models.CharField(db_column='teamName', max_length=30, blank=True, null=True)  # Field name made lowercase.
+    team2id = models.CharField(db_column='team2id', max_length=30, blank=True, null=True)  # Field name made lowercase.
     team1points = models.IntegerField(db_column='team1Points', blank=True, null=True)  # Field name made lowercase.
     team2points = models.IntegerField(db_column='team2Points', blank=True, null=True)  # Field name made lowercase.
     gamedate = models.DateField(db_column='gameDate', blank=True, null=True)  # Field name made lowercase.
