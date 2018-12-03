@@ -1,0 +1,41 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<p>Player</p></section>
+<div class="container">
+ <table class="table" style="background-color:white;">
+  <thead>
+    <tr>
+     <th></th>
+     <th>PlayerID</th>
+     <th>First Name</th>
+     <th>Last Name</th>
+     <th>Date Of Birth</th>
+     <th>Height</th>
+     <th>Weight</th>
+     <th>Position</th>
+     <th>Team</th>
+     <th>Points</th>
+    </tr>
+   </thead>
+   <tbody>
+    {% for player in players %}
+    <tr>
+    <th scope="row"></th>
+     <td>{{player.playerid}}</td>
+     <td>{{player.first_name}}</td>
+     <td>{{player.last_name}}</td>
+     <td>{{player.dob}}</td>
+     <td>{{player.height}}</td>
+     <td>{{player.weight}}</td>
+     <td>{{player.position}}</td>
+     <td>{{player.teamid.teamname}}</td>
+     <td>{{player.points}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+ </table>
+</div>
+{% endblock %}	
+
