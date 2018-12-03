@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Record</p></section>
+<div class="container">
+ <table class="table" style="background-color:white;">
+  <thead>
+    <tr>
+     <th></th>
+     <th>TeamID</th>
+     <th>Wins</th>
+     <th>Losses</th>
+    </tr>
+   </thead>
+   <tbody>
+    {% for record in records %}
+    <tr>
+    <th scope="row"></th>
+     <td>{{record.teamid.teamname}}</td>
+     <td>{{record.wins}}</td>
+     <td>{{record.losses}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+ </table>
+</div>
+{% endblock %}
+
