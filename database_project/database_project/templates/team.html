@@ -1,0 +1,30 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<p>Team </p></section>
+<div class="container">
+ <table class="table" style="background-color:white;">
+  <thead>
+    <tr>
+     <th></th>
+     <th>TeamID</th>
+     <th>Team Name</th>
+     <th>City</th>
+     <th>Conference</th>
+    </tr>
+   </thead>
+   <tbody>
+    {% for team in teams %}
+    <tr>
+    <th scope="row"></th>
+     <td>{{team.teamid}}</td>
+     <td>{{team.teamname}}</td>
+     <td>{{team.city}}</td>
+     <td>{{team.confname.confname}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+ </table>
+</div>
+{% endblock %}
